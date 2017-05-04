@@ -21,13 +21,6 @@ describe('Images API', () => {
     url: 'bestpomever'
   };
 
-  // let burritoImage = {
-  //   title: 'burrito',
-  //   descripton: '',
-  //   category: 'food',
-  //   url: 'chipotle.com'
-  // };
-
   it('roundtrips a new image', () => {
     return request.post('/api/images')
       .send(pomImage)
