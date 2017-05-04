@@ -60,9 +60,7 @@ describe('images API', () => {
   it('GET all returns both documents', () => {
     return request.get('/images')
       .then(res => res.body)
-      .then(images => {
-        assert.equal(images.length, 2);
-      });
+      .then(images => assert.equal(images.length, 2));
   });
 
 });
