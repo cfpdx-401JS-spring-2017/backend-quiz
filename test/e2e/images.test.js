@@ -13,4 +13,15 @@ describe('images API', () => {
     });
   });
 
+  let fooImageBar = {
+    title: 'no',
+    description: 'no',
+    category: 'no',
+    url: 'foobar.qux'
+  };
+
+  
+
+
+
 });
