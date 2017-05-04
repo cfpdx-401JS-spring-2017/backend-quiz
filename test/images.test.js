@@ -7,7 +7,7 @@ describe('images API', () => {
   before(db.drop);
 
   let testImage = {
-    title: 'sunset.jpg',
+    title: 'sunset',
     description: 'a beautiful sunset',
     category: 'places',
     url: 'www.someassets.com/image' 
