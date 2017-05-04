@@ -9,7 +9,6 @@ describe('Images API', () => {
   it('testing connection', () => {
     return request.get('/api/images')
       .then(res => {
-        console.log(res);
         const images = res.body;
         assert.deepEqual(images, []);
       });
@@ -20,15 +19,20 @@ describe('Images API', () => {
       title: 'Bo the Best Pom',
       descripton: 'He looks like a teddy bear and is fluffy',
       category: 'animals',
-      url: 'http://bestpomever.com'
+      url: 'bestpomever'
     };
 
     return request.post('/api/images')
     .send(pomImage)
-    .then(res => {
-      pomImage = res.body;
+    .then(res => res.body)
+    .then(saved => {
+      pomImage = saved;
+      console.log('PomImage: ', pomImage);
       return request.get(`/api/images/${pomImage._id}`)
-
+      .then(res => res.body)
+      .then(gotImage => {
+        assert.equal(gotImage, pomImage);
+      });
     });
   });
 
