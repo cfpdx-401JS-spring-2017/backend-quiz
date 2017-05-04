@@ -63,4 +63,10 @@ describe('images API', () => {
       .then(images => assert.equal(images.length, 2));
   });
 
+  it('returns proper documents when GET includes query params', () => {
+    return request.get('/images?category=places')
+      .then(res => res.body)
+      .then(images => assert.equal(images[0].title, 'sunset'));
+  });
+
 });
