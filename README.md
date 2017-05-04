@@ -28,7 +28,7 @@ you demonstrating what you know.
 
 ### Accepts post of image url to add to collection
 
-POST to `/images`:
+POST to `/images`: DONE
 
 ```
 {
@@ -39,12 +39,12 @@ POST to `/images`:
 }
 ```
 
-* `title`, `category`, and `url` are required
-* `category` should be limited to one of specified values ("animals", "food", or "places")
+* `title`, `category`, and `url` are required CHECK
+* `category` should be limited to one of specified values ("animals", "food", or "places") CHECK
 
-If any of those conditions are not met, return a 400 status code.
+If any of those conditions are not met, return a 400 status code. CHECK
 
-POST should return the same format as GET to `/images/:id`:
+POST should return the same format as GET to `/images/:id`: DONE
 
 ### Retrieve list of images
 
@@ -58,12 +58,12 @@ GET to `/images`:
 ]
 ```
 
-* Replicate exact fieldset being returned
-* Return empty array if no images
+* Replicate exact fieldset being returned DONE
+* Return empty array if no images DONE
 
 ### Retreive image detail
 
-GET to `/images/:id`:
+GET to `/images/:id`: DONE
 
 ```
 { 
@@ -75,12 +75,12 @@ GET to `/images/:id`:
 }
 ```
 
-* Replicate exact fieldset being returned
-* Return 404 if image of that id doesn't exist
+* Replicate exact fieldset being returned DONE
+* Return 404 if image of that id doesn't exist DONE
 
 ### Retrieve list of images in one category
 
-GET to `/images?category=animals`:
+GET to `/images?category=animals`: TODO
 
 ```
 [
@@ -97,9 +97,9 @@ GET to `/images?category=animals`:
 
 You only need to include the following e2e test scenario:
 
-* Connect to a test databse and drop database before test
+* Connect to a test databse and drop database before test DONE
 * Test this workflow:
-  * POST an image
-  * use the returned id from the POST request to GET same image
+  * POST an image DONE
+  * use the returned id from the POST request to GET same image DONE
 * assert that `title`, `description`, `category`, and `url` are equal
-to orignally supplied data.
+to orignally supplied data. DONE

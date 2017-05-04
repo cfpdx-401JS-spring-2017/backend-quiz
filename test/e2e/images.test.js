@@ -48,4 +48,20 @@ describe('images api', () => {
                 });
             });
     });
+
+    describe('failures', () => {
+
+        it('returns 404 if for nonexistent image with get/id', () => {
+            const badId = '589d04a8b6695bbdfd361241';
+            return request.get(`/images/${badId}`)
+                .then(
+                () => { throw new Error('expected 404'); },
+                res => {
+                    assert.equal(res.status, 404);
+                });
+        });
+
+    });
+
+    // it('')
 });
