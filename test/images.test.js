@@ -8,9 +8,9 @@ describe('Images API', () => {
 
   it('testing connection', () => {
     return request.get('/api/studios')
-    .then(res => {
-      const images = res.body;
-      assert.okay(images, []);
-    });
+      .then(res => {
+        const images = res.body;
+        assert.okay(images, []);
+      });
   });
 });
