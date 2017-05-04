@@ -28,4 +28,15 @@ describe('images API', () => {
       });
   });
 
+  it('GET by id returns same document', () => {
+    return request.get(`/images/${testImage._id}`)
+      .then(res => res.body)
+      .then(got => {
+        assert.equal(got.title, 'sunset');
+        assert.equal(got.description, 'a beautiful sunset');
+        assert.equal(got.category, 'places');
+        assert.equal(got.url, 'www.someassets.com/image');
+      });
+  });
+
 });
