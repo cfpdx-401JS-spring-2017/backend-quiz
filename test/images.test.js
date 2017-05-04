@@ -40,7 +40,11 @@ describe('images api', () => {
             .then(res => res.body)
             .then(got => {
                 assert.deepEqual(got, {
-                    // add fields
+                    _id: got._id,
+                    title: got.title,
+                    description: got.description,
+                    category: got.category,
+                    url: got.url
                 });
             });
     });
