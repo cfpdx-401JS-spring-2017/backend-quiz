@@ -6,6 +6,14 @@ describe('images api', () => {
 
     before(db.drop);
 
+    it('GET returns empty array', () => {
+        return request.get('/images')
+            .then(res => res.body)
+            .then(images => {
+                assert.deepEqual(images, []);
+            });
+    });
+
     let testImage = {
         title: 'juggling monkey',
         description: 'such talent',
