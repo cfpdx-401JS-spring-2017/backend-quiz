@@ -19,7 +19,6 @@ describe('Images API', () => {
       .then(res => res.body)
       .then(saved => {
         pomImage = saved;
-        console.log('PomImage: ', pomImage);
         return request.get(`/api/images/${pomImage._id}`)
           .then(res => res.body)
           .then(gotImage => {
@@ -45,6 +44,4 @@ describe('Images API', () => {
       });
   });
 
-
-  // it('returns 400 if required field not included' () => {});
 });
