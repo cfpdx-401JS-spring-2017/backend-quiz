@@ -7,7 +7,7 @@ describe('Images API', () => {
   before(db.drop);
 
   it('testing connection', () => {
-    return request.get('/api/studios')
+    return request.get('/api/images')
       .then(res => {
         const images = res.body;
         assert.okay(images, []);
