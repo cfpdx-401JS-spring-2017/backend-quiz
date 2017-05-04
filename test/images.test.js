@@ -16,10 +16,15 @@ describe('images API', () => {
   it('POST an image', () => {
     return request.post('/images')
       .send(testImage)
-      .then(res => res.body)
+      .then(res => {
+        assert.ok(res.statusCode === 200);
+
+        return res.body;
+      })
       .then(image => {
         assert.ok(image._id);
-        assert.equal(image.category, 'animals' || 'food' || 'places');
+
+        testImage = image;
       });
   });
 
