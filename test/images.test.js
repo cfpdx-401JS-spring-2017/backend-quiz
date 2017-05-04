@@ -19,6 +19,7 @@ describe('images API', () => {
       .then(res => res.body)
       .then(image => {
         assert.ok(image._id);
+        assert.equal(image.category, 'animals' || 'food' || 'places');
       });
   });
 
