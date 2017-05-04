@@ -10,7 +10,7 @@ describe('Images API', () => {
     title: 'Bo the Best Pom',
     descripton: 'He looks like a teddy bear and is fluffy',
     category: 'animals',
-    url: 'bestpomever.com'
+    url: 'http://bestpomever.png'
   };
 
   it('roundtrips a new image', () => {
