@@ -8,7 +8,7 @@ describe('Images API', () => {
 
   let pomImage = {
     title: 'Bo the Best Pom',
-    descripton: 'He looks like a teddy bear and is fluffy',
+    description: 'He looks like a teddy bear and is fluffy',
     category: 'animals',
     url: 'http://bestpomever.png'
   };
@@ -23,8 +23,8 @@ describe('Images API', () => {
           .then(res => res.body)
           .then(gotImage => {
             assert.equal(gotImage.title, pomImage.title);
-            assert.equal(gotImage.description, pomImage.description);
             assert.equal(gotImage.category, pomImage.category);
+            assert.equal(gotImage.description, pomImage.description);
             assert.equal(gotImage.url, pomImage.url);
           });
       });
