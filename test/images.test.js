@@ -14,26 +14,33 @@ describe('Images API', () => {
       });
   });
 
-  it('roundtrips a new image', () => {
-    let pomImage = {
-      title: 'Bo the Best Pom',
-      descripton: 'He looks like a teddy bear and is fluffy',
-      category: 'animals',
-      url: 'bestpomever'
-    };
+  let pomImage = {
+    title: 'Bo the Best Pom',
+    descripton: 'He looks like a teddy bear and is fluffy',
+    category: 'animals',
+    url: 'bestpomever'
+  };
 
+  // let burritoImage = {
+  //   title: 'burrito',
+  //   descripton: '',
+  //   category: 'food',
+  //   url: 'chipotle.com'
+  // };
+
+  it('roundtrips a new image', () => {
     return request.post('/api/images')
-    .send(pomImage)
-    .then(res => res.body)
-    .then(saved => {
-      pomImage = saved;
-      console.log('PomImage: ', pomImage);
-      return request.get(`/api/images/${pomImage._id}`)
+      .send(pomImage)
       .then(res => res.body)
-      .then(gotImage => {
-        assert.equal(gotImage, pomImage);
+      .then(saved => {
+        pomImage = saved;
+        console.log('PomImage: ', pomImage);
+        return request.get(`/api/images/${pomImage._id}`)
+          .then(res => res.body)
+          .then(gotImage => {
+            assert.equal(gotImage, pomImage);
+          });
       });
-    });
   });
 
   // it('returns 400 if required field not included' () => {});
