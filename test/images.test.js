@@ -6,19 +6,11 @@ describe('Images API', () => {
 
   before(db.drop);
 
-  it('testing connection', () => {
-    return request.get('/api/images')
-      .then(res => {
-        const images = res.body;
-        assert.deepEqual(images, []);
-      });
-  });
-
   let pomImage = {
     title: 'Bo the Best Pom',
     descripton: 'He looks like a teddy bear and is fluffy',
     category: 'animals',
-    url: 'bestpomever'
+    url: 'bestpomever.com'
   };
 
   it('roundtrips a new image', () => {
@@ -31,10 +23,28 @@ describe('Images API', () => {
         return request.get(`/api/images/${pomImage._id}`)
           .then(res => res.body)
           .then(gotImage => {
-            assert.equal(gotImage, pomImage);
+            assert.equal(gotImage.title, pomImage.title);
+            assert.equal(gotImage.description, pomImage.description);
+            assert.equal(gotImage.category, pomImage.category);
+            assert.equal(gotImage.url, pomImage.url);
           });
       });
   });
+
+  it('GET/ all images', () => {
+    return request.get('/api/images')
+      .then(res => {
+        const images = res.body;
+        const image = images[0];
+        assert.deepEqual(images.length, 1);
+        assert.deepEqual(image, {
+          _id: image._id,
+          title: image.title,
+          category: image.category
+        });
+      });
+  });
+
 
   // it('returns 400 if required field not included' () => {});
 });
