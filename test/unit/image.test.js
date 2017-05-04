@@ -15,4 +15,5 @@ describe('image validation', () => {
                 assert.ok(errors.url && errors.url.kind === 'required');
             });
     });
+
 });

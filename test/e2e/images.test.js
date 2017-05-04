@@ -63,5 +63,16 @@ describe('images api', () => {
 
     });
 
-    // it('')
+    it('return 400 if post is missing required fields', () => {
+        let badImage = {
+            description: 'im descriptive'
+        };
+        return request
+            .post('/images')
+            .send(badImage)
+            .then(() => { throw new Error('expected 400'); },
+            res => {
+                assert.equal(res.status, 400); //This is not working, can't find how to change mongoose validation error code.
+            });
+    });
 });
