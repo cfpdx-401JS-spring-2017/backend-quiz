@@ -12,6 +12,13 @@ describe('images API', () => {
     category: 'places',
     url: 'www.someassets.com/image' 
   };
+  
+  let secondImage = {
+    title: 'dinner',
+    description: 'a delicious dinner',
+    category: 'food',
+    url: 'www.someassets.com/food' 
+  };
 
   it('POST an image', () => {
     return request.post('/images')
@@ -36,6 +43,25 @@ describe('images API', () => {
         assert.equal(got.description, 'a beautiful sunset');
         assert.equal(got.category, 'places');
         assert.equal(got.url, 'www.someassets.com/image');
+      });
+  });
+
+  it('add another image for GET all test', () => {
+    return request.post('/images')
+      .send(secondImage)
+      .then(res => res.body)
+      .then(image => {
+        assert.ok(image._id);
+
+        testImage = image;
+      }); 
+  });
+
+  it('GET all returns both documents', () => {
+    return request.get('/images')
+      .then(res => res.body)
+      .then(images => {
+        assert.equal(images.length, 2);
       });
   });
 
