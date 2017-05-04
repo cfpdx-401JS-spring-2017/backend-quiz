@@ -28,23 +28,35 @@ let image1 = {
 
 function saveImage(image) {
     return request
-    .post('/api/images')
-    .send(image)
-    .then(res => res.body);
+        .post('/api/images')
+        .send(image)
+        .then(res => res.body);
 }
 
 it('roundtrips a new image', () => {
     return saveImage(image1)
-    .then(savedImage => {
-        assert.ok(savedImage._id, 'saved image has an id');
-        image1 = savedImage;
-    })
+        .then(savedImage => {
+            assert.ok(savedImage._id, 'saved image has an id');
+            image1 = savedImage;
+        })
 
-    .then(() => {
-        return request.get(`/api/images/${image1._id}`);
-    })
-    .then(res => res.body)
-    .then(gotImage => {
-        assert.deepEqual(gotImage, image1);
-    });
+        .then(() => {
+            return request.get(`/api/images/${image1._id}`);
+        })
+        .then(res => res.body)
+        .then(gotImage => {
+            assert.deepEqual(gotImage, image1);
+        });
+});
+
+it('GET returns 404 for non-existent id', () => {
+    const fakeId = '5201103b8896909da4402997';
+    return request.get(`/api/images/${fakeId}`)
+        .then(
+        () => { throw new Error('expected 404'); },
+        res => {
+            assert.equal(res.status, 404);
+        }
+        );
+
 });
