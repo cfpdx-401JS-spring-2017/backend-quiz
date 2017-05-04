@@ -44,4 +44,18 @@ describe('Images API', () => {
       });
   });
 
+  it('GET/ all images by category', () => {
+    return request.get(`/api/images?category=${pomImage.category}`)
+      .then(res => {
+        const images = res.body;
+        const image = images[0];
+        assert.deepEqual(images.length, 1);
+        assert.deepEqual(image, {
+          _id: image._id,
+          title: image.title,
+          category: image.category
+        });
+      });
+  });
+
 });
