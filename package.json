@@ -1,0 +1,41 @@
+{
+  "name": "backend-quiz",
+  "version": "1.0.0",
+  "description": "Create an express/node/mongoose/mongo server for simple image list management",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "mocha --recursive",
+    "test:e2e": "mocha test/e2e",
+    "test:unit": "mocha test/unit",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NeversSync/backend-quiz.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NeversSync/backend-quiz/issues"
+  },
+  "homepage": "https://github.com/NeversSync/backend-quiz#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongodb": "^2.2.26",
+    "mongoose": "^4.9.7",
+    "morgan": "^1.8.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.3.0",
+    "nodemon": "^1.11.0"
+  }
+}
