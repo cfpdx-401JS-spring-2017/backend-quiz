@@ -1,0 +1,32 @@
+{
+  "name": "backend-quiz",
+  "version": "1.0.0",
+  "description": "Create an express/node/mongoose/mongo server for simple image list management",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/themarquisdesheric/backend-quiz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/themarquisdesheric/backend-quiz/issues"
+  },
+  "homepage": "https://github.com/themarquisdesheric/backend-quiz#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.3.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "http": "0.0.0",
+    "mongoose": "^4.9.7",
+    "morgan": "^1.8.1"
+  }
+}
